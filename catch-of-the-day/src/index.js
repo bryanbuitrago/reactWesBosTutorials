@@ -1,7 +1,7 @@
 // let's go!
 import React from 'react'; // imports react from react
 import { render } from 'react-dom'; //Imports the render method from the DOM package
-
+import './css/style.css' // Imports css from the Web Pack.
 import StorePicker from './components/StorePicker';
 
 render(<StorePicker/>, document.querySelector('#main')); // renders the Component
