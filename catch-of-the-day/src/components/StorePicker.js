@@ -5,10 +5,10 @@ class StorePicker extends React.Component {
     // JSX allows us to write html right inside Javascript. Community Standard
     return (
       // Here we can write all our html
-      <form className = "store-selector">
+      <form className="store-selector">
       <h2> Please Enter A Store </h2>
-      <input type = "text" required placeholder = "Store Name"/>
-      <button type = " submit"> Visit Store </button>
+      <input type="text" required placeholder="Store Name"/>
+      <button type="submit"> Visit Store </button>
       </form>
       )
 
