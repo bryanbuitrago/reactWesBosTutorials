@@ -10,6 +10,7 @@ class App extends React.Component {
     super();
     this.addFish = this.addFish.bind(this);
     this.loadSamples = this.loadSamples.bind(this);
+    this.addToOrder = this.addToOrder.bind(this);
     // getinitialstate or initialstate
     this.state = {
       fishes: {},
@@ -32,6 +33,15 @@ class App extends React.Component {
     });
   }
 
+  addToOrder(key){
+    // take a copy of our state
+    const order = {...this.state.order};
+    // update or add the new number of fish ordered
+    order[key] = order[key] + 1 || 1;
+    // update the state
+    this.setState({ order: order }); // or just { order } which accomplishes the same
+  }
+
   render() {
     return (
       <div className='catch-of-the-day'>
@@ -39,7 +49,10 @@ class App extends React.Component {
           <Header age="5000" cool={true} tagline="Fresh Seafood Market"/>
           <ul className="list-of-fishes">
             { // This curly brace tells JSX that we're running Javascript
-              Object.keys(this.state.fishes).map(key => <Fish key={key} details={this.state.fishes[key]}/>)
+              Object.keys(this.state.fishes)
+              .map(key => <Fish key={key} index={key} details={this.state.fishes[key]} addToOrder={this.addToOrder}
+                />)
+              }
             }
           </ul>
         </div>
